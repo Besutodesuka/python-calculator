@@ -14,12 +14,17 @@ class Calculator:
         return result
 
     def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Cannot divide by zero.")
         result = 0
-        # fix while condition  > -> >=
-        while a >= b:
-            a = self.subtract(a, b)
-            result += 1
-        return result
+        temp_a,temp_b = a,b
+        while abs(a) >= abs(b):
+            a = self.subtract(a, b) if a > 0 else self.add(a, b)
+            if (temp_a >= 0 and temp_b >= 0) or (temp_a < 0 and temp_b < 0):
+                result += 1
+            else:
+                result -= 1
+        return result  # Adjust sign based on a
     
     def modulo(self, a, b):
         # fix operation <= -> >=

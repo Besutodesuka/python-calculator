@@ -24,7 +24,7 @@ class TestCalculator(unittest.TestCase):
     # Test cases for divide()
     def test_divide(self):
         self.assertEqual(self.calc.divide(16, 4), 4)
-        self.assertEqual(self.calc.divide(7, -1), 7)
+        self.assertEqual(self.calc.divide(-7, 1), -7)
 
     # Test cases for modulo()
     def test_modulo(self):
